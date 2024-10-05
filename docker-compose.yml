@@ -6,19 +6,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - /app:/app
     ports:
       - "8080:8080"
-    restart: always
     depends_on:
-      - ${DB_SERVICE}
-      - ${TEST_DB_SERVICE}
-      - ${REDIS_SERVICE}
+      - db
+      - test-db
+      - redis-app
   db:
     image: postgres:13
     container_name: javacode_postgresql_prod_db
-    restart: always
     env_file:
       - .env
     environment:
@@ -27,8 +23,6 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     ports:
       - "${DB_PORT}:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U ", "${DB_USER}" ]
       interval: 10s
@@ -37,7 +31,6 @@ services:
   test-db:
     image: postgres:13
     container_name: javacode_postgresql_test_db
-    restart: always
     env_file:
       - .env
     environment:
@@ -46,17 +39,15 @@ services:
       - POSTGRES_PASSWORD=${TEST_PASSWORD}
     ports:
       - "${TEST_PORT}:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U ", "${TEST_USER}"]
       interval: 10s
       timeout: 5s
       retries: 5
+
+
   redis-app:
     image: redis:6
     container_name: javacode_redis
     ports:
       - "${REDIS_PORT}:6379"
-volumes:
-  postgres_data:
