@@ -29,6 +29,11 @@ services:
       - "${DB_PORT}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ", "${DB_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   test-db:
     image: postgres:13
     container_name: javacode_postgresql_test_db
@@ -43,6 +48,11 @@ services:
       - "${TEST_PORT}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ", "${TEST_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   redis-app:
     image: redis:6
     container_name: javacode_redis
