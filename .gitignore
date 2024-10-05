@@ -32,3 +32,4 @@ HELP.md
 
 #ENVS
 .env
+__pycache__/
