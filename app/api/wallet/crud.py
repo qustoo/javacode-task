@@ -1,12 +1,11 @@
 from decimal import Decimal
 from uuid import UUID
 
+from core.models.business_enums import OperationType
+from core.models.business_models import Wallet, WalletHistory
 from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from core.models.business_enums import OperationType
-from core.models.business_models import Wallet, WalletHistory
 
 
 async def create_wallet(session: AsyncSession):

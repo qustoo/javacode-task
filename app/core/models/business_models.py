@@ -1,10 +1,9 @@
 from uuid import UUID
 
-from sqlalchemy import CheckConstraint, Enum, ForeignKey, Numeric
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-
 from core.models.base import Base
 from core.models.business_enums import OperationType
+from sqlalchemy import CheckConstraint, Enum, ForeignKey, Numeric
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 
 class Wallet(Base):

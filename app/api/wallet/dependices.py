@@ -1,11 +1,10 @@
 from typing import Annotated
 from uuid import UUID
 
-from fastapi import Depends, HTTPException, Path, status
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from core.database.helper import database_helper
 from core.models.business_models import Wallet
+from fastapi import Depends, HTTPException, Path, status
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 async def get_wallet_object(

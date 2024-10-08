@@ -31,5 +31,4 @@ async def test_limit_rate(redis_connection, api_prefix, wallet_for_tests, consta
         assert final_response.status_code == 503
 
         new_resp = await client.post(url=url, json={"amount": constant_value})
-        print(f'{new_resp=}')
-
+        print(f"{new_resp=}")

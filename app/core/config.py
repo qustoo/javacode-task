@@ -2,10 +2,9 @@ import logging
 from pathlib import Path
 from typing import Literal
 
+from consts import LOG_DEFAULT_FORMAT
 from pydantic import BaseModel, PostgresDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
-
-from consts import LOG_DEFAULT_FORMAT
 
 
 class ApiPrefix(BaseModel):
@@ -40,11 +39,11 @@ class LoggingConfig(BaseModel):
     level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
     format: str = LOG_DEFAULT_FORMAT
     status: int = {
-        'DEBUG': logging.DEBUG,
-        'INFO': logging.DEBUG,
-        'WARNING': logging.WARNING,
-        'ERROR': logging.ERROR,
-        'CRITICAL': logging.CRITICAL,
+        "DEBUG": logging.DEBUG,
+        "INFO": logging.DEBUG,
+        "WARNING": logging.WARNING,
+        "ERROR": logging.ERROR,
+        "CRITICAL": logging.CRITICAL,
     }
 
 

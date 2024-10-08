@@ -1,10 +1,9 @@
 from uuid import UUID
 
 import pytest
-from sqlalchemy import select
-
 from core.models.business_enums import OperationType
 from core.models.business_models import WalletHistory
+from sqlalchemy import select
 
 
 @pytest.mark.asyncio

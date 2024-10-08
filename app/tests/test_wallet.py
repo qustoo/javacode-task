@@ -2,7 +2,6 @@ from decimal import Decimal
 from uuid import UUID
 
 import pytest
-
 from core.models.business_models import Wallet
 
 
