@@ -1,5 +1,6 @@
 DOCKER_COMPOSE := docker-compose
-SERVICE_NAME := javacode-app
+DOCKER := docker
+APP_NAME := javacode_fastapi_app
 .PHONY: up down build logs sort flake8 black linters
 
 up:
@@ -14,12 +15,12 @@ logs:
 	$(DOCKER_COMPOSE) logs -f
 
 black:
-    $(DOCKER_COMPOSE) exec $(SERVICE_NAME) isort .
+    $(DOCKER) exec $(APP_NAME) black .
 
 sort:
-   $(DOCKER_COMPOSE) exec $(SERVICE_NAME) isort .
+   $(DOCKER) exec $(APP_NAME) isort .
 
 flake8:
-	$(DOCKER_COMPOSE) exec $(SERVICE_NAME) flake8 .
+	$(DOCKER) exec $(APP_NAME) flake8 .
 
 linters: sort black flake8
