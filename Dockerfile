@@ -18,4 +18,4 @@ EXPOSE 8080
 RUN chmod +x wait-for-db.sh
 
 CMD ["sh","-c","./wait-for-db.sh"]
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
