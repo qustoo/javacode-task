@@ -2,7 +2,7 @@
 
 Тестовое задание - 
  ```
- https://docs.google.com/document/d/1hEnCQnhljJ-pAwg7coi31J_3A05ctPcysIdkIuHXRqs/edit?pli=1\
+ https://docs.google.com/document/d/1hEnCQnhljJ-pAwg7coi31J_3A05ctPcysIdkIuHXRqs
  ```
 
 Кодовая база находится в папке '/app'
